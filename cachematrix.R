@@ -2,6 +2,10 @@
 ## inverse matrix
 
 ## This function contains the get and set operations for the original matrix and the inverse matrix
+## set - stores a the provided matrix in x
+## get - returns original matrix
+## setinv - stores the inverse matrix in cache
+## getinv - returns the inverse matrix from cache
 
 makeCacheMatrix <- function(x = matrix()) {
         mi <- NULL
@@ -17,8 +21,8 @@ makeCacheMatrix <- function(x = matrix()) {
              getinv = getinv)
 }
 
-## This function checks if the inverse matrix has laready been cached. If so, it returns the cached matrix
-## otherwise it calculates the inverse, stores it in the cache and returns it to the calling functtion
+## This function checks if the inverse matrix has already been cached. If so, it returns the cached matrix
+## otherwise it calculates the inverse, stores it in the cache and returns it to the caller
 
 cacheSolve <- function(x, ...) {
         inv <- x$getinv()
@@ -26,7 +30,7 @@ cacheSolve <- function(x, ...) {
                 message("getting cached data")
                 return(inv)
         }
-	message("calculating inverse")
+	message("calculating inverse and storing in cache")
         mat <- x$get()
         inv <- solve(mat)
         x$setinv(inv)
