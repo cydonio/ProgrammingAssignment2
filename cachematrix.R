@@ -1,4 +1,4 @@
-## The following two functions handle the creation of a matrix object which includes the calculation and caching of an
+## These two functions handle the creation of a matrix object which includes the calculation and caching of an
 ## inverse matrix
 
 
@@ -23,7 +23,7 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 ## This function checks if the inverse matrix has already been cached. If so, it returns the cached matrix
-## otherwise it calculates the inverse, stores it in the cache and returns it to the caller
+## otherwise it calculates the inverse (using solve), stores it in the cache and returns it to the caller
 cacheSolve <- function(x, ...) {
         inv <- x$getinv()
         if(!is.null(inv)) {
